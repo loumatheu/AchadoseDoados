@@ -27,30 +27,30 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Incluir rotas
-app.include_router(items.router, prefix="/api/items", tags=["items"])
-app.include_router(users.router, prefix="/api/users", tags=["users"])
-app.include_router(donations.router, prefix="/api/donations", tags=["donations"])
+# app.include_router(items.router, prefix="/api/items", tags=["items"])
+# app.include_router(users.router, prefix="/api/users", tags=["users"])
+# app.include_router(donations.router, prefix="/api/donations", tags=["donations"])
 
 # Rota de health check
 @app.get("/")
 async def root():
     return {"message": "Achados e Doados API está funcionando!"}
 
-@app.get("/health")
-async def health_check():
-    return {"status": "healthy", "service": "achados-doados-api"}
+# @app.get("/health")
+# async def health_check():
+#     return {"status": "healthy", "service": "achados-doados-api"}
 
 # Inicializar dados se necessário
-@app.on_event("startup")
-async def startup_event():
-    # Criar diretórios necessários
-    Path("data").mkdir(exist_ok=True)
-    Path("static").mkdir(exist_ok=True)
-    Path("static/images").mkdir(exist_ok=True)
+# @app.on_event("startup")
+# async def startup_event():
+#     # Criar diretórios necessários
+#     Path("data").mkdir(exist_ok=True)
+#     Path("static").mkdir(exist_ok=True)
+#     Path("static/images").mkdir(exist_ok=True)
     
-    # Inicializar arquivo de dados se não existir
-    from app.database.connection import initialize_database
-    initialize_database()
+#     # Inicializar arquivo de dados se não existir
+#     from app.database.connection import initialize_database
+#     initialize_database()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
