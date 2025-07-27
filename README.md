@@ -1,5 +1,62 @@
 # Achados & Doados
+## Tecnologias Principais
+### Backend Python (FastAPI)
+---
+- **FastAPI**: Framework principal para a API
+- **Pydantic**: Validação de dados
+- **SQLAlchemy**: ORM (pode ser usado mesmo com JSON local)
+- **Python-multipart**: Para upload de arquivos
+- **Uvicorn**: Servidor ASGI
 
+### Backend JavaScript
+---
+- **Express.js**: Para serviços auxiliares
+- **Sharp**: Processamento de imagens
+- **Node-cron**: Para tarefas agendadas
+- **Axios**: Cliente HTTP para comunicação entre serviços
+
+# Módulos
+### 1. Módulo de Gerenciamento de Itens (Python)
+- Cadastro de itens para doação
+- Busca e filtros
+- Categorização
+- Status do item (disponível, reservado, doado)
+
+### 2. Módulo de Usuários (Python)
+- Cadastro de doadores e receptores
+- Autenticação básica
+- Perfil do usuário
+- Histórico de doações
+
+### 3. Módulo de Doações (Python)
+- Processo de solicitação
+- Matching entre doadores e receptores
+- Status da doação
+- Histórico completo
+
+### 4. Módulo de Notificações (JavaScript)
+- Sistema de notificações em tempo real
+- Emails automáticos (nodemailer)
+- Notificações push (possível implementação no futuro)
+
+### 5. Módulo de Chat (Python)
+- Comunicação direta entre doador e receptor
+- Histórico de conversas
+- Integração com o sistema de notificações (possivelmente)
+
+### 6. Módulo de Frontend (React JS)
+- Interface para todas as interações do usuário
+- Integração com todos os módulos via API
+- Design responsívo
+
+### 7. Módulo de Geolocalização 
+- Distância entre usuários
+- Sugestão de itens próximos
+
+### 8. 
+
+
+## Configurações do Projeto
 ### Configurar ambiente Python
 ```bash
 cd backend/python-api
