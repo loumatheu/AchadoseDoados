@@ -2,7 +2,7 @@ from typing import Optional
 from pydantic import BaseModel as SCBaseModel
 
 # Dá pra definir vários schemas de validação para o mesmo modelo SQLAlchemy
-class ItemBase(SCBaseModel):
+class ItemSchema(SCBaseModel):
     id: Optional[int]
     title: str
     description: str

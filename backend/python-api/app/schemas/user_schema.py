@@ -1,7 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel as SCBaseModel
 
-class UserBase(SCBaseModel):
+class UserSchema(SCBaseModel):
     id: Optional[int]
     username: str
     name: str

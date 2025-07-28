@@ -4,7 +4,6 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 from pathlib import Path
 
-# Importar rotas
 from app.routes import items, users, donations
 
 # Criar instância do FastAPI
@@ -26,9 +25,9 @@ app.add_middleware(
 # Servir arquivos estáticos (imagens)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Incluir rotas
-# app.include_router(items.router, prefix="/api/items", tags=["items"])
-# app.include_router(users.router, prefix="/api/users", tags=["users"])
+# Incluir rotas (url /api/v1/prefix)
+app.include_router(items.router, prefix="/items", tags=["items"])
+app.include_router(users.router, prefix="/api/users", tags=["users"])
 # app.include_router(donations.router, prefix="/api/donations", tags=["donations"])
 
 # Rota de health check
