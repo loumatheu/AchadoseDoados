@@ -3,7 +3,7 @@ from typing import Optional, List
 from datetime import datetime
 from enum import Enum as PyEnum
 
-from sqlalchemy import Column, Integer, String, DateTime, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Enum, Float
 
 from app.core.configs import settings
 
@@ -20,6 +20,9 @@ class ItemModel(settings.DBBaseModel):
     location = Column(String(255), nullable=False)
     donor_contact = Column(String(255), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+    location_cep = Column(String(255), nullable=False)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
     
 # Pydantic models for Item -> modelos de validação
 class ItemStatus(str, PyEnum):
