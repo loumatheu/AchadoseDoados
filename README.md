@@ -100,3 +100,10 @@ uvicorn app.main:app --reload
 cd ../js-services
 npm run dev
 ```
+
+## Criação de Tabelas:
+
+Execute o seguinte comando na pasta python-api:
+```python
+python3 -m app.createtables
+```

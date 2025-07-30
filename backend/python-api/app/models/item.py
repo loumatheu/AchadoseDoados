@@ -13,7 +13,7 @@ class ItemModel(settings.DBBaseModel):
     
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(100), nullable=False)
-    item_category = Column(Enum("Eletrônicos", "Roupas", "Livros", "Mobília", "Brinquedos", "Esportes", "Outros", name="item_category_enum"), nullable=False)
+    category = Column(Enum("Eletrônicos", "Roupas", "Livros", "Mobília", "Brinquedos", "Esportes", "Outros", name="item_category_enum"), nullable=False)
     description = Column(String(1000), nullable=True)
     item_status = Column(Enum("Disponível", "Reservado", "Doado", "Cancelado", name="item_status_enum"), nullable=False)
     condition = Column(Enum("Novo", "Usado", "Recondicionado", name="item_condition_enum"), nullable=False)
@@ -27,6 +27,11 @@ class ItemStatus(str, PyEnum):
     RESERVED = "Reservado"
     DONATED = "Doado"
     CANCELLED = "Cancelado"
+    
+class ItemCondition(str, PyEnum):
+    NEW = "Novo"
+    USED = "Usado"
+    REFURBISHED = "Recondicionado"
 
 class ItemCategory(str, PyEnum):
     ELECTRONICS = "Eletrônicos"

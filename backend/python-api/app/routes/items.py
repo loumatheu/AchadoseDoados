@@ -17,7 +17,7 @@ router = APIRouter()
 async def create_item(item: ItemSchema, db: AsyncSession = Depends(get_session)):
     new_item = ItemModel(
         title = item.title,
-        item_category = item.item_category,
+        category = item.category,
         description = item.description,
         item_status = item.item_status,
         condition = item.condition,
@@ -52,7 +52,7 @@ async def get_item(item_id: int, db: AsyncSession = Depends(get_session)):
         
         return item
     
-@router.put('/{item_id}', response_model=ItemSchema, status_code=status.HTTP_200_ACCEPTED)
+@router.put('/{item_id}', response_model=ItemSchema, status_code=status.HTTP_202_ACCEPTED)
 async def update_item(item_id: int, item: ItemSchema, db: AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(ItemModel).where(ItemModel.id == item_id)
