@@ -22,7 +22,9 @@ async def create_item(item: ItemSchema, db: AsyncSession = Depends(get_session))
         item_status = item.item_status,
         condition = item.condition,
         location = item.location,
-        donor_contact = item.donor_contact
+        donor_contact = item.donor_contact,
+        donor_id = item.donor_id,
+        recipient_id = item.recipient_id if item.recipient_id else None
     ) # tudo isso seria resumido em `ItemModel(**item.dict())`, mas aqui é mais explícito
     
     db.add(new_item)

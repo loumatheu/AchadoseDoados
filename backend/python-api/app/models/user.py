@@ -17,6 +17,7 @@ class UserModel(settings.DBBaseModel):
     email: str = Column(String(100), nullable=False, unique=True)
     address: str = Column(String(1000), nullable=True)
     phone: str = Column(String(20), nullable=True)
+    password: str = Column(String(255), nullable=False)
     created_at: datetime = Column(DateTime, default=datetime.utcnow)
     
 # Pydantic models for User -> modelos de validação
@@ -26,3 +27,5 @@ class UserBase(BaseModel):
     email: str = Field(..., min_length=5, max_length=100, description="Email do usuário")
     address: Optional[str] = Field(None, max_length=1000, description="Endereço do usuário")
     phone: Optional[str] = Field(None, max_length=20, description="Telefone do usuário")
+    password: str = Field(..., min_length=6, max_length=100, description="Senha do usuário")
+    created_at: datetime = Field(default_factory=datetime.utcnow, description="Data de criação do usuário")

@@ -13,6 +13,8 @@ class ItemSchema(SCBaseModel):
     condition: ItemCondition
     location: str
     donor_contact: str
+    donor_id: int
+    recipient_id: Optional[int] = None
     
     class Config:
         orm_mode = True

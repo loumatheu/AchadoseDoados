@@ -3,7 +3,7 @@ from typing import Optional, List
 from datetime import datetime
 from enum import Enum as PyEnum
 
-from sqlalchemy import Column, Integer, String, DateTime, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Enum, ForeignKey
 
 from app.core.configs import settings
 
@@ -19,6 +19,8 @@ class ItemModel(settings.DBBaseModel):
     condition = Column(Enum("Novo", "Usado", "Recondicionado", name="item_condition_enum"), nullable=False)
     location = Column(String(255), nullable=False)
     donor_contact = Column(String(255), nullable=False)
+    donor_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    recipient_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     
 # Pydantic models for Item -> modelos de validação
