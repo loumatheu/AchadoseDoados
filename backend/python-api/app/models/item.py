@@ -22,6 +22,9 @@ class ItemModel(settings.DBBaseModel):
     donor_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     recipient_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    location_cep = Column(String(255), nullable=False)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
     
 # Pydantic models for Item -> modelos de validação
 class ItemStatus(str, PyEnum):
