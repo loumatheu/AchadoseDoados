@@ -8,6 +8,7 @@ class UserSchema(SCBaseModel):
     email: str
     address: Optional[str] = None
     phone: Optional[str] = None
+    password: str
     
     class Config:
         orm_mode = True

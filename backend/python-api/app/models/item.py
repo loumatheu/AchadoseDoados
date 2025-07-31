@@ -3,7 +3,7 @@ from typing import Optional, List
 from datetime import datetime
 from enum import Enum as PyEnum
 
-from sqlalchemy import Column, Integer, String, DateTime, Enum, Float
+from sqlalchemy import Column, Integer, String, DateTime, Enum, ForeignKey
 
 from app.core.configs import settings
 
@@ -13,12 +13,14 @@ class ItemModel(settings.DBBaseModel):
     
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(100), nullable=False)
-    item_category = Column(Enum("Eletrônicos", "Roupas", "Livros", "Mobília", "Brinquedos", "Esportes", "Outros", name="item_category_enum"), nullable=False)
+    category = Column(Enum("Eletrônicos", "Roupas", "Livros", "Mobília", "Brinquedos", "Esportes", "Outros", name="item_category_enum"), nullable=False)
     description = Column(String(1000), nullable=True)
     item_status = Column(Enum("Disponível", "Reservado", "Doado", "Cancelado", name="item_status_enum"), nullable=False)
     condition = Column(Enum("Novo", "Usado", "Recondicionado", name="item_condition_enum"), nullable=False)
     location = Column(String(255), nullable=False)
     donor_contact = Column(String(255), nullable=False)
+    donor_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    recipient_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     location_cep = Column(String(255), nullable=False)
     latitude = Column(Float, nullable=True)
@@ -30,6 +32,11 @@ class ItemStatus(str, PyEnum):
     RESERVED = "Reservado"
     DONATED = "Doado"
     CANCELLED = "Cancelado"
+    
+class ItemCondition(str, PyEnum):
+    NEW = "Novo"
+    USED = "Usado"
+    REFURBISHED = "Recondicionado"
 
 class ItemCategory(str, PyEnum):
     ELECTRONICS = "Eletrônicos"

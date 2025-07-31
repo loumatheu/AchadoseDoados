@@ -6,3 +6,4 @@ backend/python-api/app/core/__pycache__/
 backend/python-api/app/models/__pycache__/
 backend/python-api/app/routes/__pycache__/
 backend/python-api/app/services/__pycache__/
+backend/python-api/app/schemas/__pycache__/
