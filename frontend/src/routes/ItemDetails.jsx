@@ -25,7 +25,7 @@ export default function ItemDetail() {
   const irParaChat = () => {
     navigate(`/chat/${item.usuario.id}`);
   };
-
+//itemdetail
   return (
     <div className="item-detail-wrapper">
       <a href="/" className="back-to-home-button">Voltar para Doações</a>

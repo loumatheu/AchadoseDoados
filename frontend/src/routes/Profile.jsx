@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/Profile.css';
-
+//profile
 export default function Profile() {
   return (
     <div className="profile-page">

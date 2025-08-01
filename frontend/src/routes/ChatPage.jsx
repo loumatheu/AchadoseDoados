@@ -5,7 +5,7 @@ const mockUsers = [
   { id: 1, name: 'João Silva', photo: 'https://via.placeholder.com/40' },
   { id: 2, name: 'Maria Souza', photo: 'https://via.placeholder.com/40' },
 ];
-
+//chatpage
 export default function ChatPage() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [messages, setMessages] = useState([]);

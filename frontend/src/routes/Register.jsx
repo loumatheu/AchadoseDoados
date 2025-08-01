@@ -1,7 +1,7 @@
-// routes/Register.jsx
+
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
-
+//registrar
 export default function Register() {
   const navigate = useNavigate();
 

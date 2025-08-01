@@ -10,7 +10,7 @@ import Anunciar from './routes/Anunciar';
 
 
 
-
+//att
 function AppContent() {
   const location = useLocation();
   const hideNavbar = location.pathname === '/login' || location.pathname === '/register';
