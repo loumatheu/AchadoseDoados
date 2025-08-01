@@ -6,6 +6,7 @@ from pathlib import Path
 from app.core.configs import settings
 from app.routes import items, users, donations
 from app.routes.geolocation import router as geolocation_router
+from app.routes.rating import router as rating_router
 
 # Criar instância do FastAPI
 app = FastAPI(
@@ -27,6 +28,7 @@ app.add_middleware(
 app.include_router(items.router, prefix="/items", tags=["items"])
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(geolocation_router, prefix="/geolocation", tags=["Geolocation"])
+app.include_router(rating_router, prefix="/rating", tags=["Rating"])
 
 # app.include_router(donations.router, prefix="/api/donations", tags=["donations"])
 
