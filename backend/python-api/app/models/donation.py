@@ -1,22 +1,21 @@
-from pydantic import BaseModel, Field
-from typing import Optional, List
+from sqlalchemy import Column, Integer, ForeignKey, String, DateTime
+from sqlalchemy.orm import relationship
 from datetime import datetime
-from enum import Enum as PyEnum
 
-from sqlalchemy import Column, Integer, String, DateTime, Enum, ForeignKey
+from app.core.database import Base
 
-from app.core.configs import settings
-
-class DonationModel(settings.DBBaseModel):
+class DonationModel(Base):
     __tablename__ = "donations"
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    item_id = Column(Integer, ForeignKey("items.id"), nullable=False)
-    donor_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    recipient_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    donated_at = Column(DateTime, default=datetime.utcnow)
 
-class DonationBase(BaseModel):
-    item_id: int
-    donor_id: int
-    recipient_id: int
-    donated_at: Optional[datetime] = None
+    id = Column(Integer, primary_key=True, index=True)
+    item_id = Column(Integer, ForeignKey("items.id"))
+    donor_id = Column(Integer, ForeignKey("users.id"))
+    recipient_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    date = Column(DateTime, default=datetime.utcnow)
+    status = Column(String, default="pending")
+    comment = Column(String, nullable=True)
+    
+    item = relationship("ItemModel", back_populates="donations")
+    donor = relationship("UserModel", foreign_keys=[donor_id])
+    recipient = relationship("UserModel", foreign_keys=[recipient_id])
+

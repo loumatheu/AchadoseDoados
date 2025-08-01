@@ -29,8 +29,7 @@ app.include_router(items.router, prefix="/items", tags=["items"])
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(geolocation_router, prefix="/geolocation", tags=["Geolocation"])
 app.include_router(rating_router, prefix="/rating", tags=["Rating"])
-
-# app.include_router(donations.router, prefix="/api/donations", tags=["donations"])
+app.include_router(donations.router, prefix="/donations", tags=["Donations"])
 
 # Rota de health check
 @app.get("/")
