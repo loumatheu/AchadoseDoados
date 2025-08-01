@@ -1,0 +1,125 @@
+.chat-page {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-sidebar {
+  width: 250px;
+  background-color: #b6d2f8;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.chat-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  height: 50px;
+  width: 250px;
+}
+
+.chat-user img {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.chat-user.active {
+  font-weight: bold;
+  background-color: #d0e7ff;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f8fb;
+}
+
+.chat-header {
+  padding: 20px;
+  background-color: #0077cc;
+  color: white;
+  font-weight: bold;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-bubble {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chat-bubble.me {
+  background-color: #0077cc;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-bubble.them {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 10px 15px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.no-user {
+  margin: auto;
+  color: gray;
+  font-size: 1.2rem;
+}
+.chat-back-button {
+  margin-bottom: 20px;
+}
+
+.custom-back-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #0077cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.custom-back-link:hover {
+  background-color: #005fa3;
+}

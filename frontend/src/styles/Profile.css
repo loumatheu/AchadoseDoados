@@ -1,0 +1,97 @@
+.profile-page {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-info {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.user-details h2 {
+  margin: 0;
+}
+
+.user-settings {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.user-settings ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-settings li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #0077cc;
+}
+
+.right-section {
+  flex: 2;
+}
+
+.donations-box {
+  background-color: #dcdcdc;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.donation-card {
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+}
+
+.donation-photo {
+  width: 100%;
+  height: 80px;
+  background-color: #333;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.back-to-home-button {
+  background-color: #0077cc; 
+  color: white;              
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;     
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.back-to-home-button:hover {
+  background-color: #005fa3; /* cor quando o mouse passa por cima */
+}

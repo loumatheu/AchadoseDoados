@@ -1,5 +1,6 @@
 ADvenv/
 backend/python-api/.env
+backend/python-api/venv/
 backend/python-api/__pycache__/
 backend/python-api/app/__pycache__/
 backend/python-api/app/core/__pycache__/
@@ -7,7 +8,9 @@ backend/python-api/app/models/__pycache__/
 backend/python-api/app/routes/__pycache__/
 backend/python-api/app/services/__pycache__/
 backend/python-api/app/schemas/__pycache__/
-backend/python-api/venv/
+
+backend/Chat/.env
+
 backend/js-services/node_modules/
 .DS_Store
 Thumbs.db
