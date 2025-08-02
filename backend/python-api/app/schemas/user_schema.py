@@ -1,14 +1,33 @@
 from typing import Optional
-from pydantic import BaseModel as SCBaseModel
+from pydantic import BaseModel, EmailStr, Field
+from datetime import datetime
 
-class UserSchema(SCBaseModel):
-    id: Optional[int]
-    username: str
-    name: str
-    email: str
+class UserBase(BaseModel):
+    username: str = Field(..., min_length=3, max_length=50)
+    name: str = Field(..., min_length=3, max_length=100)
+    email: EmailStr
     address: Optional[str] = None
     phone: Optional[str] = None
-    password: str
-    
+
+class UserCreate(UserBase):
+    password: str = Field(..., min_length=6, max_length=100)
+
+class UserRead(UserBase):
+    id: int
+    created_at: datetime
+
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
+
