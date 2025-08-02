@@ -51,9 +51,12 @@
 
 ### 7. Módulo de Geolocalização 
 - Distância entre usuários
-- Sugestão de itens próximos
+- Conversão de CEP para coordenadas geográficas
 
-### 8. 
+### 8. Módulo de Avaliação
+- Criar uma nova avaliação
+- Obter todas as avaliações recebidas por um usuário
+- Calcular a reputação do usuário
 
 
 ## Configurações do Projeto
